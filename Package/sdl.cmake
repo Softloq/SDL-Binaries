@@ -1,6 +1,6 @@
 add_custom_target(
-    SDL_Copy_DLLs
-    ALL DEPENDS ${ALL_TARGETS}
-    COMMAND "${CMAKE_COMMAND}" -E make_directory "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIG>"
-    COMMAND "${CMAKE_COMMAND}" -E copy "${CMAKE_CURRENT_LIST_DIR}/bin/SDL3.dll" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIG>"
-)
+    Copy_SDL_DLLs
+    COMMENT "Copying SDL DLLs"
+    COMMAND ${CMAKE_COMMAND}
+        -DCopyPath="${CMAKE_BINARY_DIR}/$<CONFIG>/bin"
+        -P "${CMAKE_CURRENT_LIST_DIR}/copy_dll.cmake")
