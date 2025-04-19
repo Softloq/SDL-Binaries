@@ -1,5 +1,0 @@
-file(GLOB_RECURSE SDL_DLLs "${CMAKE_CURRENT_LIST_DIR}/bin/*.dll")
-foreach(SDL_DLL ${SDL_DLLs})
-    get_filename_component(SDL_DLL_name "${SDL_DLL}" NAME)
-    execute_process(COMMAND "${CMAKE_COMMAND}" -E copy_if_different "${SDL_DLL}" "${CopyPath}/${SDL_DLL_name}")
-endforeach()
