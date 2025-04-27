@@ -6,10 +6,9 @@ add_library(sdl::all ALIAS sdl-all)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     add_custom_target(
-        SDL-DLL-Copy
-        DEPENDS "${CMAKE_CURRENT_LIST_DIR}/__run_always"
-        COMMENT "SDL DLL Copy"
+        Copy-SDL-DLL
+        COMMENT "Copy SDL DLL"
         COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_LIST_DIR}/bin/SDL3.dll" "${CMAKE_BINARY_DIR}/$<CONFIG>/bin/SDL3.dll"
     )
-    add_dependencies(sdl-all SDL-DLL-Copy)
+    add_dependencies(sdl-all Copy-SDL-DLL)
 endif()
